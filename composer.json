@@ -1,5 +1,5 @@
 {
-    "name": "kuralab/php-kdb",
+    "name": "kura-lab/php-kdb",
     "description": "Kura DataBase",
     "keywords": ["database", "KVS"],
     "type": "library",
