@@ -1,0 +1,22 @@
+{
+    "name": "kuralab/php-kdb",
+    "description": "Kura DataBase",
+    "keywords": ["database", "KVS"],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/kura-lab/php-kdb",
+    "authors": [
+      {
+        "name": "kura-lab",
+        "email": "none"
+      }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+      "psr-0": {
+        "kuralab\\kdb": "src/"
+      }
+    }
+}
