@@ -1,2 +1,2 @@
 # php-kdb
-Kura DataBase of PHP
+KDB(Kura DataBase) is a simple database of text files.
