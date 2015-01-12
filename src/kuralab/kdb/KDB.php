@@ -12,21 +12,35 @@ class KDB
         $this->dir = $dir . ".kdb/";
     }
 
-    public function open($key)
+    private function createDirectory()
     {
         if (!file_exists($this->dir)) {
             if (!mkdir($this->dir, 0777, true)) {
                 return false;
             }
         }
-        $this->path = $this->dir . md5($key);
 
         return true;
     }
 
+    private function generatePath($key)
+    {
+        $this->path = $this->dir . $this->generateHash($key);
+    }
+
+    protected function generateHash($key)
+    {
+        return md5($key);
+    }
+
     public function set($key, $value)
     {
-        $buffer = $this->getAllData();
+        if (!$this->createDirectory()) {
+            return false;
+        }
+        $this->generatePath($key);
+
+        $buffer = $this->readAll();
         if (!$buffer) {
             $result = array();
         } else {
@@ -51,7 +65,12 @@ class KDB
 
     public function get($key)
     {
-        $buffer = $this->getAllData();
+        if (!$this->createDirectory()) {
+            return false;
+        }
+        $this->generatePath($key);
+
+        $buffer = $this->readAll();
         if (!$buffer) {
             return false;
         }
@@ -60,7 +79,7 @@ class KDB
         return $result[$key];
     }
 
-    private function getAllData()
+    private function readAll()
     {
         if (!file_exists($this->path)) {
             return false;
@@ -70,12 +89,11 @@ class KDB
             fclose($fp);
             return false;
         }
-        if (flock($fp, LOCK_SH)) {
+        if (flock($fp, LOCK_EX)) {
             $buffer = "";
             while (!feof($fp)) {
                 $buffer .= fgets($fp);
             }
-            flock($fp, LOCK_UN);
         } else {
             return false;
         }
