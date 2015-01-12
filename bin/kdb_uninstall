@@ -1,5 +1,6 @@
 #!/bin/bash
 
 rm -rf ~/.kdb
+echo "Deleted ~/.kdb directory."
 
 echo "kdb: Uninstalled kdb.(~/.kdb)";
