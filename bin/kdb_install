@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir -p ~/.kdb/bin
+ln -s `pwd`/kdb ~/.kdb/bin
+
+echo 'export PATH="$HOME/.kdb/bin:$PATH"' >> ~/.bash_profile
+
+echo "kdb: Installed kdb.(~/.kdb)";
