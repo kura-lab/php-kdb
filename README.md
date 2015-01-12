@@ -60,3 +60,25 @@ $ php sample.php
 string(3) "foo"
 string(25) "{"bar":"huga","0":"fuga"}"
 ```
+
+
+### Command
+
+Display usage of kdb command.
+
+```
+$ ./bin/kdb -h
+Usage: ./bin/kdb [-h] [-D database [-R key] [-W -k key -v value]]
+```
+
+Write in the database.
+
+```
+$ ./bin/kdb -D user -W -k hoge -v tege
+```
+
+Read the database.
+
+```
+$ ./bin/kdb -D user -R hoge
+```
