@@ -74,11 +74,18 @@ Usage: ./bin/kdb [-h] [-D database [-R key] [-W -k key -v value]]
 Write in the database.
 
 ```
-$ ./bin/kdb -D user -W -k hoge -v tege
+$ ./bin/kdb -D user -W -k hoge -v foo
+kdb: Write mode.
+key:   hoge
+value: foo
+kdb: Success to write.
 ```
 
 Read the database.
 
 ```
 $ ./bin/kdb -D user -R hoge
+kdb: Read mode.
+string(4) "foo"
+kdb: Success to read.
 ```
