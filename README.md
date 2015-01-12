@@ -69,7 +69,10 @@ Install kdb command.
 ```
 $ cd php-kdb/bin/
 $ ./kdb_install 
-Uninstalled kdb.(~/.kdb)
+kdb: Created ~/.kdb directory.
+kdb: Created symbolic link kdb.
+kdb: Added kdb path in ~/.bash_profile.
+kdb: Installed kdb.(~/.kdb)
 $ exec $SHELL -l
 $ which kdb
 ~/.kdb/bin/kdb
@@ -105,5 +108,6 @@ Uninstall kdb command.
 
 ```
 $ ./kdb_uninstall 
-Uninstalled kdb.(~/.kdb)
+Deleted ~/.kdb directory.
+kdb: Uninstalled kdb.(~/.kdb)
 ```
