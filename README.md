@@ -64,6 +64,17 @@ string(25) "{"bar":"huga","0":"fuga"}"
 
 ### Command
 
+Install kdb command.
+
+```
+$ cd php-kdb/bin/
+$ ./kdb_install 
+Uninstalled kdb.(~/.kdb)
+$ exec $SHELL -l
+$ which kdb
+~/.kdb/bin/kdb
+```
+
 Display usage of kdb command.
 
 ```
@@ -88,4 +99,11 @@ $ ./bin/kdb -D user -R hoge
 kdb: Read mode.
 string(4) "foo"
 kdb: Success to read.
+```
+
+Uninstall kdb command.
+
+```
+$ ./kdb_uninstall 
+Uninstalled kdb.(~/.kdb)
 ```
