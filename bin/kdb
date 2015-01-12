@@ -1,0 +1,50 @@
+#!/usr/bin/php
+<?php
+
+require_once(dirname(__FILE__) . "/../src/kuralab/kdb/KDB.php");
+
+use kuralab\kdb\KDB;
+
+function usage($argv)
+{
+  echo "Usage: $argv[0] [-h] [-D database [-R key] [-W -k key -v value]]\n";
+}
+
+$val = getopt("D:R:k:v:Wh");
+
+if (empty($val["D"])) {
+  usage($argv);
+  exit;
+}
+
+if (!empty($val["R"])) {
+
+  echo "kdb: Read mode.\n";
+  $kdb = new KDB($val["D"]);
+  $ret = $kdb->get($val["R"]);
+  if ($ret) {
+    var_dump($ret);
+    echo "kdb: Success to read.\n";
+  } else {
+    echo "kdb: Failed to read.\n";
+  }
+
+} else if (array_key_exists("W", $val) && !empty($val["k"]) && !empty($val["v"])) {
+
+  echo "kdb: Write mode.\n";
+  $kdb = new KDB($val["D"]);
+  if ($kdb->set($val["k"], $val["v"])) {
+    echo "key:   " . $val["k"] . "\n";
+    echo "value: " . $val["v"] . "\n";
+    echo "kdb: Success to write.\n";
+  } else {
+    echo "kdb: Failed to write.\n";
+  }
+
+} else if (!empty($val["h"])) {
+  usage($argv);
+  exit;
+} else {
+  usage($argv);
+  exit;
+}
