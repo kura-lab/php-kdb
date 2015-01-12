@@ -40,20 +40,13 @@ class KDB
         }
         $this->generatePath($key);
 
-        $buffer = $this->readAll();
-        if (!$buffer) {
-            $result = array();
-        } else {
-            $result = json_decode($buffer, true);
-        }
-        $result[$key] = $value;
         $fp = fopen($this->path, "w");
         if (!$fp) {
             fclose($fp);
             return false;
         }
         if (flock($fp, LOCK_EX)) {
-            $json = json_encode($result);
+            $json = json_encode($value);
             fwrite($fp, $json);
         } else {
             return false;
@@ -76,7 +69,7 @@ class KDB
         }
         $result = json_decode($buffer, true);
 
-        return $result[$key];
+        return $result;
     }
 
     private function readAll()
