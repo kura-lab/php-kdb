@@ -33,7 +33,7 @@ Install kdb library.
 $ php composer.phar install
 ```
 
-### Useage
+### Usage
 
 Require autoloader in the your program.
 
