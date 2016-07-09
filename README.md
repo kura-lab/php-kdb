@@ -16,7 +16,7 @@ Create composer.json.
 ```
 {
     "require": {
-        "kura-lab/php-kdb": "dev-master"
+        "kura-lab/php-kdb": "1.0.0"
     }
 }
 ```
