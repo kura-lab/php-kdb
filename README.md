@@ -15,12 +15,6 @@ Create composer.json.
 
 ```
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/kura-lab/php-kdb"
-        }
-    ],
     "require": {
         "kura-lab/php-kdb": "dev-master"
     }
