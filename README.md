@@ -1,6 +1,9 @@
 # php-kdb
 KDB(Kura DataBase) is a simple database of text files.
 
+[![Packagist](https://img.shields.io/packagist/v/kura-lab/php-kdb.svg)](https://packagist.org/packages/kura-lab/php-kdb)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/kura-lab/php-kdb/blob/master/LICENSE)
+
 ### Install
 
 At first, install composer.
